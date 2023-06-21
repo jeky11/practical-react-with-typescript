@@ -1,32 +1,41 @@
 module.exports = {
     env: {
         browser: true,
-        es2021: true
+        es2021: true,
+        node: true,
     },
     extends: [
-        'standard-with-typescript',
+        'eslint:recommended',
+        'plugin:prettier/recommended',
         'plugin:react/recommended',
-        "prettier"
+        'plugin:react-hooks/recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:storybook/recommended',
     ],
+    parser: '@typescript-eslint/parser',
+    parserOptions: {
+        ecmaFeatures: {
+            jsx: true,
+        },
+        ecmaVersion: 12,
+        sourceType: 'module',
+    },
+    plugins: ['react', '@typescript-eslint', 'prettier'],
+    rules: {
+        'prettier/prettier': ['error', {singleQuote: true}],
+        'react/prop-types': 0,
+    },
     overrides: [
         {
-            env: {
-                node: true
+            files: ['webpack.config.js'],
+            rules: {
+                '@typescript-eslint/no-var-requires': ['off'],
             },
-            files: [
-                '.eslintrc.{js,cjs}'
-            ],
-            parserOptions: {
-                sourceType: 'script'
-            }
-        }
+        },
     ],
-    parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module'
+    settings: {
+        react: {
+            version: 'detect',
+        },
     },
-    plugins: [
-        'react'
-    ],
-    rules: {}
-}
+};
