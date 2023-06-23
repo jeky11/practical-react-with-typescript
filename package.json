@@ -13,6 +13,7 @@
     "watch": "webpack --watch --mode=development",
     "start": "webpack serve --mode=development",
     "test": "jest",
+    "update-snapshots": "jest --updateSnapshot --testNamePattern",
     "lint": "npx eslint ./ --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore --fix",
     "test:mutate": "stryker run",
     "storybook": "start-storybook -p 6006",
