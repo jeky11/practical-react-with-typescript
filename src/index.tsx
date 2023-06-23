@@ -2,7 +2,7 @@
 import ReactDOM from 'react-dom';
 
 import { Top } from '@/components/top';
-import { Scoreboard } from '@/components/Scoreboard/Scoreboard';
+import { Scoreboard } from '@/components/scoreboard/Scoreboard';
 
 const rootElement = document.getElementById('root');
 
