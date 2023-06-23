@@ -1,12 +1,13 @@
 ﻿import React from 'react';
-import { render } from 'react-dom';
-import { Legend } from '@/components/top/Legend';
+import ReactDOM from 'react-dom';
 
-//import { App } from './App';
+import { Top } from '@/components/top';
 
 const rootElement = document.getElementById('root');
 
-render(
-  <Legend feature="flag" firstAction="ctrl" secondAction="click" />,
+ReactDOM.render(
+  <Top feature="flag" firstAction="ctrl" secondAction="click">
+    Minesweeper
+  </Top>,
   rootElement
 );
