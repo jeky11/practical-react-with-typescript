@@ -15,7 +15,7 @@ describe('Cell component check', () => {
     onContextMenu: jest.fn(),
   };
 
-  for (let cell = CellState.empty; cell <= CellState.weakFlag; cell++) {
+  for (let cell = CellState.empty; cell <= CellState.weakMark; cell++) {
     it('Cell renders correct', () => {
       const { asFragment } = render(<Cell {...props}>{cell}</Cell>);
 
