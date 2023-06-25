@@ -1,38 +1,34 @@
 ﻿import {
-  Cell,
-  CellState,
-  emptyFieldGenerator,
+  generateFieldWithDefaultState,
   fieldGenerator,
-} from '@/core/Field';
+  CellState,
+  Cell,
+} from './Field';
 
 const { empty, bomb, hidden } = CellState;
 
 const cellWithBombFilter = (cell: Cell) => cell === bomb;
 
 describe('Field Generator', () => {
-  describe('emptyFieldGenerator', () => {
-    it('2*2', () => {
-      expect(emptyFieldGenerator(2)).toStrictEqual([
+  describe('emptyFieldGenerator tests', () => {
+    it('2x2', () => {
+      expect(generateFieldWithDefaultState(2)).toStrictEqual([
         [empty, empty],
         [empty, empty],
       ]);
     });
-
-    it('3*3', () => {
-      expect(emptyFieldGenerator(3)).toStrictEqual([
+    it('3x3', () =>
+      expect(generateFieldWithDefaultState(3)).toStrictEqual([
         [empty, empty, empty],
         [empty, empty, empty],
         [empty, empty, empty],
-      ]);
-    });
-
-    it('3*3 with hidden state', () => {
-      expect(emptyFieldGenerator(3, hidden)).toStrictEqual([
+      ]));
+    it('3x3 with hidden state', () =>
+      expect(generateFieldWithDefaultState(3, hidden)).toStrictEqual([
         [hidden, hidden, hidden],
         [hidden, hidden, hidden],
         [hidden, hidden, hidden],
-      ]);
-    });
+      ]));
   });
 
   describe('Simple cases', () => {
