@@ -10,7 +10,7 @@ export const CellState: Record<string, Cell> = {
   bomb: 9,
   hidden: 10,
   mark: 11,
-  weakMark: 12,
+  weakFlag: 12,
 };
 
 export const emptyFieldGenerator = (
@@ -31,10 +31,6 @@ export const fieldGenerator = (size: number, probability: number): Field => {
   // Stryker disable next-line EqualityOperator
   for (let y = 0; y < size; y++) {
     for (let x = 0; x < size; x++) {
-      if (restCellsWithBombs === 0) {
-        return result;
-      }
-
       // Stryker disable next-line EqualityOperator
       if (restCellsWithBombs / unprocessedCells > Math.random()) {
         result[y][x] = CellState.bomb;
