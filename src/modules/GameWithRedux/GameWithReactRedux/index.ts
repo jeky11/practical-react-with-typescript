@@ -1,0 +1,1 @@
+﻿export { GameWithReactRedux } from './GameWithReactRedux';

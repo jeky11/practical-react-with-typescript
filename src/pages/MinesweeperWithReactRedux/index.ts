@@ -1,0 +1,1 @@
+﻿export { MinesweeperWithReactRedux } from './MinesweeperWithReactRedux';

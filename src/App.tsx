@@ -1,6 +1,6 @@
 ﻿import React, { FC, Suspense } from 'react';
 import { Location } from 'history';
-//import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import {
   BrowserRouter,
   Routes,
@@ -10,7 +10,7 @@ import {
   useSearchParams,
 } from 'react-router-dom';
 
-//import { store } from '@/store';
+import { store } from '@/store';
 
 const MinesweeperWithHooks = React.lazy(() =>
   import('@/pages/MinesweeperWithHooks').then(({ MinesweeperWithHooks }) => ({
@@ -18,7 +18,7 @@ const MinesweeperWithHooks = React.lazy(() =>
   }))
 );
 
-/*const MinesweeperWithUseReducer = React.lazy(() =>
+const MinesweeperWithUseReducer = React.lazy(() =>
   import('@/pages/MinesweeperWithUseReducer').then(
     ({ MinesweeperWithUseReducer }) => ({
       default: MinesweeperWithUseReducer,
@@ -32,7 +32,7 @@ const MinesweeperWithReactRedux = React.lazy(() =>
       default: MinesweeperWithReactRedux,
     })
   )
-);*/
+);
 
 export const Navigation: FC = () => {
   const [searchParams] = useSearchParams();
@@ -105,7 +105,7 @@ export const Routing: FC = () => (
           <Suspense
             fallback={<div>Loading minesweeper with useReducer...</div>}
           >
-            {/*<MinesweeperWithUseReducer />*/}
+            {<MinesweeperWithUseReducer />}
           </Suspense>
         }
       />
@@ -115,7 +115,7 @@ export const Routing: FC = () => (
           <Suspense
             fallback={<div>Loading minesweeper with ReactRedux...</div>}
           >
-            {/*<MinesweeperWithReactRedux />*/}
+            {<MinesweeperWithReactRedux />}
           </Suspense>
         }
       />
@@ -125,10 +125,10 @@ export const Routing: FC = () => (
 );
 
 export const App: FC = () => (
-  /*<Provider store={store}>*/
-  <BrowserRouter>
-    <Navigation />
-    <Routing />
-  </BrowserRouter>
-  /*</Provider>*/
+  <Provider store={store}>
+    <BrowserRouter>
+      <Navigation />
+      <Routing />
+    </BrowserRouter>
+  </Provider>
 );
